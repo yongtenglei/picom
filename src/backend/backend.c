@@ -479,8 +479,9 @@ void paint_all_new(session_t *ps, struct managed_win *t, bool ignore_damage) {
 
 				// Only animate opacity here if we are resizing
 				// a transparent window
+				double animation_progress_opacity = w->animation_progress > ps->o.animation_opacity_min ? w->animation_progress : ps->o.animation_opacity_min;
 				process_window_for_painting(ps, w, w->win_image,
-								w->opacity >= 1 ? 1.0 : w->animation_progress,
+								w->opacity >= 1 ? 1.0 : animation_progress_opacity,
 								&reg_bound, &reg_visible,
 								&reg_paint, &reg_paint_in_bound);
 
@@ -489,7 +490,7 @@ void paint_all_new(session_t *ps, struct managed_win *t, bool ignore_damage) {
 				// move so slightly they will keep flickering
 				if (resizing) {
 					process_window_for_painting(ps, w, w->old_win_image,
-									1.0 - w->animation_progress,
+									1.0 - animation_progress_opacity,
 									&reg_bound, &reg_visible,
 									&reg_paint, &reg_paint_in_bound);
 				}

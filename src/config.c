@@ -580,6 +580,7 @@ char *parse_config(options_t *opt, const char *config_file, bool *shadow_enable,
 	    .animation_window_mass = 1.0,
 	    .animation_dampening = 25,
 	    .animation_clamping = true,
+	    .animation_opacity_min = 0.0,
 
 	    .inactive_opacity = 1.0,
 	    .inactive_opacity_override = false,

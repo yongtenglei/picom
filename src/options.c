@@ -98,6 +98,10 @@ static void usage(const char *argv0, int ret) {
 	    "--animation-clamping\n"
 	    "  Whether to clamp animations (default: true)\n"
 	    "\n"
+	    "--animation-opacity-min (default: 0.0).\n"
+	    "  Minim Opacity of animation processing.\n"
+	    "  If you hope disable animation opacity, you can set this parameter to 1.0.\n"
+	    "\n"
 	    "--animation-exclude condition\n"
 	    "  Exclude conditions for animation.\n"
 	    "\n"
@@ -930,6 +934,11 @@ bool get_cfg(options_t *opt, int argc, char *const *argv, bool shadow_enable,
 		case 811: {
 			// --animation-exclude
 			condlst_add(&opt->animation_blacklist, optarg);
+			break;
+		}
+		case 812: {
+			// --animation-opacity-min
+			opt->animation_opacity_min = atof(optarg);
 			break;
 		}
 		default: usage(argv[0], 1); break;
