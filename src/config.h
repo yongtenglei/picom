@@ -199,6 +199,8 @@ typedef struct options {
 	bool animation_clamping;
 	/// TODO: window animation blacklist
 	/// TODO: open/close animations
+	/// Animation blacklist. A linked list of conditions.
+	c2_lptr_t *animation_blacklist;
 
 	// === Opacity ===
 	/// Default opacity for inactive windows.
