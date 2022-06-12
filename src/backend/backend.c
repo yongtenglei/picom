@@ -479,7 +479,7 @@ void paint_all_new(session_t *ps, struct managed_win *t, bool ignore_damage) {
 
 				// Only animate opacity here if we are resizing
 				// a transparent window
-				double animation_progress_opacity = w->animation_progress > ps->o.animation_opacity_min ? w->animation_progress : ps->o.animation_opacity_min;
+				double animation_progress_opacity = w->animation_progress < ps->o.animation_opacity_min ? ps->o.animation_opacity_min : w->animation_progress;
 				process_window_for_painting(ps, w, w->win_image,
 								w->opacity >= 1 ? 1.0 : animation_progress_opacity,
 								&reg_bound, &reg_visible,

@@ -553,7 +553,7 @@ void win_process_update_flags(session_t *ps, struct managed_win *w) {
 
 		// Ignore animations all together if set to none on window type basis
 		// Update window geometry
-		if (win_should_animation(ps, w)) {
+		if (win_should_animate(ps, w)) {
 			if (!was_visible) {
 				// Set window-open animation
 				init_animation(ps, w);
@@ -987,9 +987,9 @@ bool win_should_fade(session_t *ps, const struct managed_win *w) {
 }
 
 /**
- * Determine if a window should animation.
+ * Determine if a window should animate.
  */
-bool win_should_animation(session_t *ps, const struct managed_win *w) {
+bool win_should_animate(session_t *ps, const struct managed_win *w) {
     if (!ps->o.animations) {
         return false;
     }
