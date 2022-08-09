@@ -120,6 +120,17 @@ See [CONTRIBUTORS](CONTRIBUTORS)
 
 The README for the [original Compton project](https://github.com/chjj/compton/) can be found [here](History.md#Compton).
 
+### Summary
+```bash
+cd picom
+git checkout implement-window-animations
+
+rm -rf build
+LDFLAGS="-L/usr/local/lib" CPPFLAGS="-I/usr/local/include" meson --buildtype=release . build
+ninja -C build
+sudo ninja -C build install
+```
+
 ## Licensing
 
 picom is free software, made available under the [MIT](LICENSES/MIT) and [MPL-2.0](LICENSES/MPL-2.0) software
